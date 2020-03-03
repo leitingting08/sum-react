@@ -7,8 +7,8 @@
     "build": "vue-cli-service build --target lib --name toh-component-demo index.js",
     "prepublishOnly": "npm run build",
     "lint": "vue-cli-service lint",
-    "styleguide": "vue-cli-service styleguidist",
-    "styleguide:build": "vue-cli-service styleguidist:build"
+    "doc": "vue-cli-service styleguidist",
+    "doc:build": "vue-cli-service styleguidist:build"
   },
   "dependencies": {
     "core-js": "^3.6.4",
