@@ -6,6 +6,10 @@
 </template>
 
 <script>
+/**
+ * 注释文档写法：
+ * https://vue-styleguidist.github.io/docs/Documenting.html#code-comments
+ */
 import demoMixin from './demoMixin'
 export default {
   name: 'demo-button',

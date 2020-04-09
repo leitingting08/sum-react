@@ -13,5 +13,7 @@ module.exports = {
   // 组件示例路径
   getExampleFilename (componentPath) {
     return path.join(__dirname, 'docs/', path.basename(componentPath).replace(/\.vue?$/, '.md'))
-  }
+  },
+  // 引入第三方插件
+  require: [path.join(__dirname, 'styleguide/global.requires.js')]
 }
