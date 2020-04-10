@@ -3,26 +3,25 @@ module.exports = {
   env: {
     node: true
   },
-  'extends': [
-    'plugin:vue/essential',
-    '@vue/standard'
+  extends: [
+    "plugin:vue/recommended",
+    "eslint:recommended"
   ],
-  rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
-  },
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: "babel-eslint"
   },
-  overrides: [
-    {
-      files: [
-        '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)'
-      ],
-      env: {
-        jest: true
+  rules: {
+    "vue/max-attributes-per-line": [
+      "warn",
+      {
+        singleline: 3,
+        multiline: {
+          max: 1,
+          allowFirstLine: false
+        }
       }
-    }
-  ]
-}
+    ],
+    "vue/require-default-prop": 0,
+    "no-unused-vars":0,
+  }
+};

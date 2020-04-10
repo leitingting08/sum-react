@@ -1,7 +1,7 @@
 <template>
   <button :style="styles" @click="handleClick">
     <!-- @slot Use this slot to place the button content -->
-    <slot></slot>
+    <slot />
   </button>
 </template>
 
@@ -12,7 +12,7 @@
  */
 import demoMixin from './demoMixin'
 export default {
-  name: 'demo-button',
+  name: 'DemoButton',
   mixins: [demoMixin],
   props: {
     /**
