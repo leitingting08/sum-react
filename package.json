@@ -1,6 +1,6 @@
 {
   "name": "@dxy-toh/toh-component-demo",
-  "version": "0.1.4",
+  "version": "1.0.0",
   "private": false,
   "main": "dist/toh-component-demo.umd.min.js",
   "license": "UNLICENSED",
