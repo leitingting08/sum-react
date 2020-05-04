@@ -14,6 +14,12 @@ module.exports = {
   getExampleFilename (componentPath) {
     return path.join(__dirname, 'docs/', path.basename(componentPath).replace(/\.vue?$/, '.md'))
   },
+  compilerConfig: {
+    transforms: {
+      // to make async/await work by default (no transformation)
+      asyncAwait: false,
+    },
+  },
   // 引入第三方插件
   require: [path.join(__dirname, 'styleguide/global.requires.js')]
 }
