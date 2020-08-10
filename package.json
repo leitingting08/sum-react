@@ -1,47 +1,75 @@
 {
-  "name": "@dxy-toh/toh-component-demo",
+  "name": "@dxy-toh/biomart_pc",
   "version": "1.0.0",
+  "description": "基于 React 的业务组件库",
   "private": false,
-  "main": "dist/toh-component-demo.umd.min.js",
+  "main": "dist/biomart_pc.umd.min.js",
   "license": "UNLICENSED",
   "publishConfig": {
     "registry": "http://npm.dxy.net:7001"
   },
   "scripts": {
-    "build": "vue-cli-service build --target lib --name toh-component-demo index.js",
-    "prepublishOnly": "npm run build",
-    "lint": "vue-cli-service lint",
-    "doc": "vue-cli-service styleguidist",
-    "doc:build": "vue-cli-service styleguidist:build"
+    "commit": "git-cz"
   },
   "files": [
-    "dist/toh-component-demo.umd.min.js",
-    "dist/toh-component-demo.css"
+    "dist",
+    "lib",
+    "es"
   ],
-  "dependencies": {},
+  "output": {
+    "path": "config.build.assetsRoot",
+    "filename": "utils.assetsPath('js/[name].js')",
+    "chunkFilename": "utils.assetsPath('js/[id].js')",
+    "library": "TipUi",
+    "libraryTarget": "umd"
+  },
+  "dependencies": {
+    "docz": "^2.3.1"
+  },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.2.0",
-    "@vue/cli-plugin-eslint": "^4.2.0",
-    "@vue/cli-service": "^4.2.0",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.1.2",
-    "less": "^3.0.4",
-    "less-loader": "^5.0.0",
-    "vue-cli-plugin-styleguidist": "^4.7.6",
-    "vue-template-compiler": "^2.6.11"
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "@umijs/fabric": "^2.2.2",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "typescript": "^3.9.7"
   },
   "peerDependencies": {
-    "core-js": "^3.6.4",
-    "vue": ">=2.6.11",
-    "view-design": ">=4.1.3"
+    "antd": "^3.0.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "components/**/*.{js,ts}?(x)": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "components/**/*.less": [
+      "stylelint --syntax less --fix",
+      "git add"
+    ]
   },
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ],
-  "ease": {
-    "isComponent": true,
-    "componentDir": "components"
-  }
+  ]
 }
