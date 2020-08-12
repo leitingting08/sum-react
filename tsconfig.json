@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "build/dist",
+    "module": "esnext",
+    "target": "es5",
+    "lib": [
+      "dom",
+      "es2015.core",
+      "es2015.promise",
+      "es5",
+      "esnext.array",
+      "es2017.object",
+      "es6",
+      "es2015.iterable",
+      "es2015.generator",
+      "es2015.symbol",
+      "es7"
+    ],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react",
+    "isolatedModules": false,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

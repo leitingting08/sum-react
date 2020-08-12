@@ -1,0 +1,3 @@
+```js
+<BiomartButton type="primary" />
+```
