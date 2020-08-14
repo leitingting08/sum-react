@@ -8,7 +8,7 @@ import typescript from 'rollup-plugin-typescript';
 import { DEFAULT_EXTENSIONS } from '@babel/core';
 
 const pkg = require('./package.json');
-const isDev = process.env.NODE_ENV !== 'production';
+const isProd = process.env.NODE_ENV === 'production';
 
 const paths = {
   input: path.join(__dirname, '/components/index.js'),
@@ -61,7 +61,7 @@ export default {
       // This plugin will process files ending with these extensions and the extensions supported by custom loaders.
       extensions: ['.less', '.css'],
     }),
-    !isDev && terser(),
+    isProd && terser(), // 压缩js
   ],
   // 指出应将哪些模块视为外部模块，如 Peer dependencies 中的依赖
   external: ['antd', 'react', 'react-dom'],
