@@ -13,6 +13,7 @@
   "scripts": {
     "doc": "styleguidist server",
     "build": "NODE_ENV=production rimraf dist && rollup -c",
+    "build:watch": "NODE_ENV=production rimraf dist && rollup -c -w",
     "build:dev": "rimraf dist && rollup -c",
     "build_doc": "styleguidist build"
   },

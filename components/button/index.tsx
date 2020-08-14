@@ -17,10 +17,9 @@ interface Props {
  * Button 组件
  * @link [antd button](https://ant.design/components/button-cn/)
  */
-
-function BiomartButton(props: Props) {
+const [loading, setLoading] = useState(false);
+const BiomartButton = (props: Props) => {
   const { onClick, type = 'primary' } = props;
-  const [loading, setLoading] = useState(false);
   const handleClick = async () => {
     if (!onClick) return;
     if (loading) return;
@@ -41,6 +40,6 @@ function BiomartButton(props: Props) {
       className="biomart-btn"
     />
   );
-}
+};
 
 export default BiomartButton;
