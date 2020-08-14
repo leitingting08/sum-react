@@ -10,7 +10,7 @@
 
 ## 三、业务组件开发原则
 
-> 低耦合模块化可复用
+> 低耦合、模块化、可复用
 
 ## 四、开发组件&文档
 
@@ -52,7 +52,7 @@ npm run build
 
 ## 六、发布前准备
 
-发布前请先验证组件在项目中表现是否正常在当前组件库项目下 `yarn link` 或 `npm link` 在要用到组件库的项目中 `yarn link "@dxy-toh/biomart_components"` 或 `npm link "@dxy-toh/biomart_components"` 进行本地调试，看使用是否正常，由于打包工具不同，所以和 `styleguidist` 文档中的表现可能有所不同。所以需要注意下
+> 发布前请先验证组件在项目中表现是否正常在当前组件库项目下 `yarn link` 或 `npm link` 在要用到组件库的项目中 `yarn link "@dxy-toh/biomart_components"` 或 `npm link "@dxy-toh/biomart_components"` 进行本地调试，看使用是否正常，由于打包工具不同，所以和 `styleguidist` 文档中的表现可能有所不同。所以需要注意下
 
 ## 七、发布到 npm
 
@@ -62,7 +62,7 @@ npm run build
 npm publish
 ```
 
-## TODO
+## 八、TODO
 
 - [ ] 优化打包
 - [ ] 单元测试
