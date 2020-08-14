@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { Button } from 'antd';
+import './index.less';
 
 interface Props {
   /**
-   * 点击事件
+   * 按钮类型 默认primary
    */
-  onClick: Function;
+  type?: 'primary' | 'ghost' | 'dashed' | 'link' | 'text' | 'default';
+  /**
+   * 点击事件  有交互的时候用这个
+   */
+  onClick?: Function;
 }
 
 /**
@@ -14,9 +19,10 @@ interface Props {
  */
 
 function BiomartButton(props: Props) {
-  const { onClick } = props;
+  const { onClick, type = 'primary' } = props;
   const [loading, setLoading] = useState(false);
   const handleClick = async () => {
+    if (!onClick) return;
     if (loading) return;
     setLoading(true);
     try {
@@ -26,7 +32,15 @@ function BiomartButton(props: Props) {
     }
   };
 
-  return <Button {...props} loading={loading} onClick={handleClick}></Button>;
+  return (
+    <Button
+      {...props}
+      type={type}
+      loading={loading}
+      onClick={handleClick}
+      className="biomart-btn"
+    />
+  );
 }
 
 export default BiomartButton;

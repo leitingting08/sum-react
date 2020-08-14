@@ -1,24 +1,22 @@
-const path = require('path');
-
 module.exports = {
-  entry: './components/index.ts',
+  entry: './components/index.js',
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
+        test: /\.(js|jsx|ts|tsx)?$/,
+        loader: require.resolve('babel-loader'),
+        query: {
+          cacheDirectory: true,
+          plugins: [['import', { libraryName: 'antd', style: 'css' }]],
+        },
+      },
+      {
+        test: /\.(css|less)?$/,
+        use: ['style-loader', 'css-loader', 'less-loader'],
       },
     ],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-  },
-  output: {
-    path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].js'),
-    chunkFilename: utils.assetsPath('js/[id].js'),
-    library: 'BiomartCompoents',
-    libraryTarget: 'umd',
   },
 };
