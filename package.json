@@ -1,5 +1,5 @@
 {
-  "name": "@dxy-toh/biomart_pc",
+  "name": "@dxy-toh/biomart_components",
   "version": "0.1.0",
   "description": "基于 React 的业务组件库",
   "private": false,
@@ -11,7 +11,7 @@
     "registry": "http://npm.dxy.net:7001"
   },
   "scripts": {
-    "dev": "styleguidist server",
+    "doc": "styleguidist server",
     "build": "NODE_ENV=production rimraf dist && rollup -c",
     "build:dev": "rimraf dist && rollup -c",
     "build_doc": "styleguidist build"
