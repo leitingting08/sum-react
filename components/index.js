@@ -1,2 +1,2 @@
-export { default as BiomartButton } from './button';
-export { default as BiomartModal } from './modal';
+export { default as BaseButton } from './button';
+export { default as BaseModal } from './modal';

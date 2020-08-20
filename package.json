@@ -1,15 +1,12 @@
 {
-  "name": "@dxy-toh/biomart_components",
-  "version": "0.1.1",
+  "name": "react_components",
+  "version": "0.1.0",
   "description": "基于 React 的业务组件库",
   "private": false,
-  "main": "./dist/biomart_components.main.js",
-  "module": "./dist/biomart_components.module.js",
+  "main": "./dist/react_components.main.js",
+  "module": "./dist/react_components.module.js",
   "license": "UNLICENSED",
-  "homepage": "https://gitlab.dxy.net/f2e/toh/biomart_components",
-  "publishConfig": {
-    "registry": "http://npm.dxy.net:7001"
-  },
+  "homepage": "https://github.com/leitingting08/react-components.git",
   "scripts": {
     "doc": "styleguidist server",
     "build": "rimraf dist && cross-env NODE_ENV=production rollup -c",
@@ -20,8 +17,8 @@
     "release": "standard-version"
   },
   "files": [
-    "dist/biomart_components.main.js",
-    "dist/biomart_components.module.js"
+    "dist/react_components.main.js",
+    "dist/react_components.module.js"
   ],
   "dependencies": {},
   "devDependencies": {
@@ -67,7 +64,7 @@
     "webpack": "^4.44.1"
   },
   "peerDependencies": {
-    "antd": "^3.0.0",
+    "antd": "^4.5.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },

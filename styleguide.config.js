@@ -1,10 +1,9 @@
 const path = require('path');
-
 const packagePath = path.resolve(__dirname, 'package.json');
 const packageFile = require(packagePath);
 
 module.exports = {
-  title: '丁香通业务组件库',
+  title: 'React 业务组件库',
   version: packageFile.version, // 同上 使用 package.json 的 version
   usageMode: 'expand', // 自动打开文档的缩放
   pagePerSection: true, // 是否每页一个组件显示

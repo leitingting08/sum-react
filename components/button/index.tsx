@@ -18,7 +18,7 @@ interface Props {
  * @link [antd button](https://ant.design/components/button-cn/)
  */
 
-function BiomartButton(props: Props) {
+function BaseButton(props: Props) {
   const { onClick, type = 'primary' } = props;
   const [loading, setLoading] = useState(false);
   const handleClick = async () => {
@@ -33,14 +33,8 @@ function BiomartButton(props: Props) {
   };
 
   return (
-    <Button
-      {...props}
-      type={type}
-      loading={loading}
-      onClick={handleClick}
-      className="biomart-btn"
-    />
+    <Button {...props} type={type} loading={loading} onClick={handleClick} className="base-btn" />
   );
 }
 
-export default BiomartButton;
+export default BaseButton;

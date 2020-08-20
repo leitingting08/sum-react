@@ -34,21 +34,21 @@ interface Props {
  * @link [antd modal](https://ant.design/components/modal-cn/)
  */
 
-function BiomartModal(props: Props) {
+function BaseModal(props: Props) {
   const { centered = true, visible, onOk, onCancel, okText = '确认', cancelText = '取消' } = props;
   return (
     <Modal
       {...props}
-      className="biomart-modal"
+      className="base-modal"
       visible={visible}
       okText={okText}
       cancelText={cancelText}
       centered={centered}
-      closeIcon={<span className="biomart-closebtn">×</span>}
+      closeIcon={<span className="base-closebtn">×</span>}
       onOk={() => onOk}
       onCancel={() => onCancel}
     />
   );
 }
 
-export default BiomartModal;
+export default BaseModal;
