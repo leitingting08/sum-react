@@ -15,7 +15,9 @@
     "build": "rimraf dist && cross-env NODE_ENV=production rollup -c",
     "build:watch": "rimraf dist && rollup -c -w",
     "build:dev": "rimraf dist && rollup -c",
-    "build_doc": "styleguidist build"
+    "build_doc": "styleguidist build",
+    "commit": "git-cz",
+    "release": "standard-version"
   },
   "files": [
     "dist/biomart_components.main.js",
@@ -59,14 +61,15 @@
     "rollup-plugin-postcss": "^3.1.5",
     "rollup-plugin-terser": "^7.0.0",
     "rollup-plugin-typescript": "^1.0.1",
+    "standard-version": "^9.0.0",
     "style-loader": "^1.2.1",
     "typescript": "^3.9.7",
     "webpack": "^4.44.1"
   },
   "peerDependencies": {
     "antd": "^3.0.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "husky": {
     "hooks": {

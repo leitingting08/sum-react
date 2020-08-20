@@ -52,7 +52,7 @@ npm run build
 
 ## 六、发布前准备
 
-> 发布前请先验证组件在项目中表现是否正常在当前组件库项目下 `yarn link` 或 `npm link` 在要用到组件库的项目中 `yarn link "@dxy-toh/biomart_components"` 或 `npm link "@dxy-toh/biomart_components"` 进行本地调试，看使用是否正常，由于打包工具不同，所以和 `styleguidist` 文档中的表现可能有所不同，需要注意下发布前更改 `package.json` 中的版本号
+> 发布前更改 `package.json` 中的版本号
 
 ## 七、发布到 npm
 
@@ -64,6 +64,8 @@ npm publish
 
 ## 八、TODO
 
+- [x] 文档示例
+- [x] 更改日志
 - [ ] 版本管理
-- [ ] 更改日志
 - [ ] 单元测试
+- [ ] 记录打点
