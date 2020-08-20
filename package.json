@@ -1,6 +1,6 @@
 {
   "name": "@dxy-toh/biomart_components",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "基于 React 的业务组件库",
   "private": false,
   "main": "./dist/biomart_components.main.js",
