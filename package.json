@@ -12,9 +12,10 @@
     "build": "rimraf dist && cross-env NODE_ENV=production rollup -c",
     "build:watch": "rimraf dist && rollup -c -w",
     "build:dev": "rimraf dist && rollup -c",
-    "build_doc": "styleguidist build",
+    "build_doc": "rimraf dist_docs && styleguidist build",
     "commit": "git-cz",
-    "release": "standard-version"
+    "release": "standard-version",
+    "pub": "npm run build_doc && npm publish"
   },
   "files": [
     "dist/react_components.main.js",

@@ -42,6 +42,8 @@ or
 npm run build_doc
 ```
 
+可以打包后部署到 github pages 上 [戳这里看](https://leitingting08.github.io/react-components/dist_docs)
+
 ## 五、组件库打包
 
 ```
@@ -56,9 +58,11 @@ npm run build
 
 ## 七、发布到 npm
 
-如果之前没有登录过 npm 的话，需要先登录再执行发布
+如果之前没有登录过 npm 的话，需要先登录再执行发布命令。放到 npm scripts 里 pub 命令在执行发布之前先打包文档部署。或者不想要部署文档就直接执行发布命令好了
 
 ```
+npm run pub
+or
 npm publish
 ```
 
