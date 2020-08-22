@@ -42,7 +42,7 @@ or
 npm run build_doc
 ```
 
-可以打包后部署到 github pages 上 [戳这里看](https://leitingting08.github.io/react-components/dist_docs)
+可以打包后部署到 github pages 上 [戳这里看](https://leitingting08.github.io/react-components/dist_docs/)
 
 ## 五、组件库打包
 
