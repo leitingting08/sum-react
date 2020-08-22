@@ -8,13 +8,13 @@ const showModal = () => {
   setVisible(true);
 };
 
+const closeModal = () => {
+  console.log('closemodal');
+  setVisible(false);
+};
+
 <>
-  <BaseModal
-    title="Basic Modal"
-    visible={visible}
-    onOk={() => setVisible(false)}
-    onCancel={() => setVisible(false)}
-  >
+  <BaseModal title="Basic Modal" visible={visible} onOk={closeModal} onCancel={closeModal}>
     <p>Some contents...</p>
   </BaseModal>
   <BaseButton type="primary" onClick={showModal}>
