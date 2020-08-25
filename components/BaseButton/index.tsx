@@ -19,7 +19,7 @@ interface Props {
  */
 
 function BaseButton(props: Props) {
-  const { onClick, type = 'primary' } = props;
+  const { onClick, type } = props;
   const [loading, setLoading] = useState(false);
   const handleClick = async () => {
     if (!onClick) return;
@@ -36,5 +36,9 @@ function BaseButton(props: Props) {
     <Button {...props} type={type} loading={loading} onClick={handleClick} className="base-btn" />
   );
 }
+
+BaseButton.defaultProps = {
+  type: 'primary',
+};
 
 export default BaseButton;

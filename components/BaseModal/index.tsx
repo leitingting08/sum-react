@@ -35,7 +35,7 @@ interface Props {
  */
 
 function BaseModal(props: Props) {
-  const { centered = true, visible, onOk, onCancel, okText = '确认', cancelText = '取消' } = props;
+  const { centered, visible, onOk, onCancel, okText, cancelText } = props;
   return (
     <Modal
       {...props}
@@ -50,5 +50,12 @@ function BaseModal(props: Props) {
     />
   );
 }
+
+BaseModal.defaultProps = {
+  visible: false,
+  centered: true,
+  okText: '确认',
+  cancelText: '取消',
+};
 
 export default BaseModal;
