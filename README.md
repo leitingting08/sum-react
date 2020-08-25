@@ -34,6 +34,14 @@ npm run doc
 
 新组件以文件夹形式统一放到 `components` 下，最终在 `components` 下的 `index.js` 文件中导出
 
+利用 plop 工具快速生成组件文件夹，会根据模板文件生成以组件命名的文件夹，同时修改`components` 下的 `index.js`
+
+```
+yarn plop <ComponentName>
+or
+npx plop <ComponentName>
+```
+
 ### 文档打包
 
 ```
@@ -71,6 +79,6 @@ npm publish
 - [x] 文档示例
 - [x] 更改日志
 - [x] 文档部署
-- [ ] 版本管理
+- [x] 工具快速生成文件
 - [ ] 单元测试
 - [ ] 记录打点

@@ -1,2 +1,3 @@
-export { default as BaseButton } from './button';
-export { default as BaseModal } from './modal';
+// -- APPEND ITEMS HERE --
+export { default as BaseButton } from './BaseButton';
+export { default as BaseModal } from './BaseModal';
