@@ -11,7 +11,9 @@ module.exports = {
   components: 'components/**/*.tsx', // 写入对应目录的文档
   exampleMode: 'expand', // 表示示例代码是否展开或者合上文档中代码示例的标签初始化状态，决定是否展开
   webpackConfig: require('./webpack.config'),
-  propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json').parse, // 用来支持 tsx
+  propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json', {
+    shouldRemoveUndefinedFromOptional: true,
+  }).parse, // 用来支持 tsx
   verbose: true, // 打印详细信息
   compilerConfig: {
     target: { ie: 11 },
