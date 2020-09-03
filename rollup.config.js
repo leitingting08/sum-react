@@ -2,67 +2,75 @@ import path from 'path';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
-import resolve from 'rollup-plugin-node-resolve';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript';
+import json from '@rollup/plugin-json';
 import { DEFAULT_EXTENSIONS } from '@babel/core';
 
-const pkg = require('./package.json');
+const fs = require('fs');
+
 const isProd = process.env.NODE_ENV === 'production';
 
-const paths = {
-  input: path.join(__dirname, '/components/index.js'),
-  output: path.join(__dirname, '/dist'),
+const packages = {};
+const dir = path.join(__dirname, '/components');
+const files = fs.readdirSync(dir);
+files.forEach((file) => {
+  if (file !== 'index.js') {
+    packages[file] = `components/${file}/index.tsx`;
+  }
+});
+
+const all = `index`;
+packages[all] = path.join(__dirname, '/components/index.js');
+
+const createRollupConfig = (file, name) => {
+  const config = {
+    input: file,
+    output: {
+      file: name === all ? 'lib/index.js' : `lib/${name}/index.js`,
+      format: 'es',
+      name,
+      globals: {
+        antd: 'antd',
+        react: 'react',
+      },
+    },
+    plugins: [
+      json(),
+      nodeResolve({ browser: true }),
+      babel({
+        exclude: 'node_modules/**',
+        runtimeHelpers: true,
+        // babel 默认不支持 ts 需要手动添加
+        extensions: [...DEFAULT_EXTENSIONS, '.ts'],
+      }),
+      typescript(),
+      // 使得 rollup 支持 commonjs 规范，识别 commonjs 规范的依赖
+      commonjs(),
+      postcss({
+        // 单独打包css文件默认false
+        // extract: true,
+        extract: true,
+        // Minimize CSS, boolean or options for cssnano.
+        minimize: isProd,
+        // Enable sourceMap.
+        sourceMap: !isProd,
+        // This plugin will process files ending with these extensions and the extensions supported by custom loaders.
+        extensions: ['.less', '.css'],
+      }),
+      isProd && terser(), // 压缩js
+    ],
+    // 指出应将哪些模块视为外部模块，如 Peer dependencies 中的依赖
+    external: ['antd', 'react', 'react-dom'],
+  };
+  return config;
 };
 
-export default {
-  input: paths.input,
-  output: [
-    {
-      file: pkg.module,
-      format: 'es',
-      name: pkg.name,
-      globals: {
-        antd: 'antd',
-        react: 'react',
-      },
-    },
-    {
-      file: pkg.main,
-      format: 'umd',
-      name: pkg.name,
-      globals: {
-        antd: 'antd',
-        react: 'react',
-      },
-    },
-  ],
-  plugins: [
-    resolve(),
-    babel({
-      exclude: 'node_modules/**',
-      runtimeHelpers: true,
-      // babel 默认不支持 ts 需要手动添加
-      extensions: [...DEFAULT_EXTENSIONS, '.ts'],
-    }),
-    typescript(),
-    // 使得 rollup 支持 commonjs 规范，识别 commonjs 规范的依赖
-    commonjs(),
-    // postcss(),
-    postcss({
-      // Extract CSS to the same location where JS file is generated but with .css extension.
-      extract: true,
-      // Use named exports alongside default export.
-      namedExports: true,
-      // Minimize CSS, boolean or options for cssnano.
-      minimize: true,
-      // Enable sourceMap.
-      sourceMap: true,
-      // This plugin will process files ending with these extensions and the extensions supported by custom loaders.
-      extensions: ['.less', '.css'],
-    }),
-    isProd && terser(), // 压缩js
-  ],
-  // 指出应将哪些模块视为外部模块，如 Peer dependencies 中的依赖
-  external: ['antd', 'react', 'react-dom'],
-};
+const buildPackages = [];
+Object.keys(packages).forEach((name) => {
+  const file = packages[name];
+  buildPackages.push(createRollupConfig(file, name));
+});
+
+export default buildPackages;

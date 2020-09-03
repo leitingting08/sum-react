@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "description": "基于 React 的业务组件库",
   "private": false,
-  "main": "./dist/react_components.main.js",
-  "module": "./dist/react_components.module.js",
-  "license": "UNLICENSED",
+  "main": "./lib/index.js",
+  "module": "./lib/index.js",
   "homepage": "https://github.com/leitingting08/react-components.git",
   "scripts": {
     "doc": "styleguidist server",
@@ -15,11 +14,10 @@
     "build_doc": "rimraf dist_docs && styleguidist build",
     "commit": "git-cz",
     "release": "standard-version",
-    "pub": "npm run build_doc && npm publish"
+    "pub": "npm run build && npm publish"
   },
   "files": [
-    "dist/react_components.main.js",
-    "dist/react_components.module.js"
+    "lib"
   ],
   "dependencies": {},
   "devDependencies": {

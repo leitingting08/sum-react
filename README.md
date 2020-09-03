@@ -66,19 +66,45 @@ npm run build
 
 ## 七、发布到 npm
 
-如果之前没有登录过 npm 的话，需要先登录再执行发布命令。放到 npm scripts 里 pub 命令在执行发布之前先打包文档部署。或者不想要部署文档就直接执行发布命令好了
+如果之前没有登录过 npm 的话，需要先登录再执行发布命令。放到 npm scripts 里 pub 命令，其实就是打包和发布的组合命令，执行发布之前先打包文档部署。或者不想要部署文档就直接执行发布命令好了
 
 ```
-npm run pub
+yarn pub
 or
-npm publish
+npm run pub
 ```
 
-## 八、TODO
+## 八、组件库使用
+
+按需加载使用 babel-plugin-import 插件配置 babel
+
+首先安装
+
+```
+yarn add babel-plugin-import --dev
+or
+npm i babel-plugin-import -D
+```
+
+其次，配置 babel 插件，具体看项目是在 webpack 里配置还是在 babel.config.js 文件里配置，配置完成之后就能使用按需加载了
+
+```
+[
+  'import',{  // 导入一个插件
+    libraryName: 'react-components',   // 暴露的库名
+    camel2DashComponentName: false, // 关闭驼峰转换
+    style: name=>`${name}/index.css` // 转换后的路径
+  },
+  'react-components'
+]
+```
+
+## 九、TODO
 
 - [x] 文档示例
 - [x] 更改日志
 - [x] 文档部署
 - [x] 工具快速生成文件
+- [x] 按需引入
 - [ ] 单元测试
 - [ ] 记录打点
