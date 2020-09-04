@@ -14,6 +14,7 @@
     "build_doc": "rimraf dist_docs && styleguidist build",
     "commit": "git-cz",
     "release": "standard-version",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "pub": "npm run build && npm publish"
   },
   "files": [
