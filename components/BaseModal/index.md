@@ -1,7 +1,6 @@
 ```jsx
 import React from 'react';
 import BaseButton from '../BaseButton';
-this.state = { visible: false };
 const [visible, setVisible] = React.useState(false);
 const showModal = () => {
   console.log('showmodal');

@@ -19,8 +19,8 @@ interface Props {
  */
 
 function BaseButton(props: Props) {
-  const { onClick, type } = props;
   const [loading, setLoading] = useState(false);
+  const { onClick, type } = props;
   const handleClick = async () => {
     if (!onClick) return;
     if (loading) return;
