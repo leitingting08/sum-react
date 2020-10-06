@@ -1,10 +1,10 @@
 const path = require('path');
 const packagePath = path.resolve(__dirname, 'package.json');
-const packageFile = require(packagePath);
+const pkg = require(packagePath);
 
 module.exports = {
   title: 'React 业务组件库',
-  version: packageFile.version, // 同上 使用 package.json 的 version
+  version: pkg.version, // 同上 使用 package.json 的 version
   usageMode: 'expand', // 自动打开文档的缩放
   pagePerSection: true, // 是否每页一个组件显示
   styleguideDir: 'dist_docs', // 打包的目录
@@ -23,9 +23,14 @@ module.exports = {
       asyncAwait: false,
     },
   },
+  // 优化文档中的组件名
+  getComponentPathLine(componentPath) {
+    const name = path.basename(componentPath.replace(/index.tsx/g, ''));
+    return `import { ${name} } from '${pkg.name}'`;
+  },
   updateDocs(docs, file) {
     if (docs.doclets.version) {
-      const version = packageFile.version;
+      const version = pkg.version;
       docs.doclets.version = version;
       docs.tags.version[0].description = version;
     }

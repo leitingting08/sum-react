@@ -7,12 +7,27 @@ module.exports = {
         loader: require.resolve('babel-loader'),
         query: {
           cacheDirectory: true,
-          plugins: [['import', { libraryName: 'antd', style: 'css' }]],
+          plugins: [['import', { libraryName: 'antd', style: true }]],
         },
       },
       {
         test: /\.(css|less)?$/,
-        use: ['style-loader', 'css-loader', 'less-loader'],
+        use: [
+          { loader: require.resolve('style-loader') },
+          { loader: require.resolve('css-loader') },
+          {
+            loader: require.resolve('less-loader'),
+            options: {
+              lessOptions: {
+                javascriptEnabled: true,
+              },
+            },
+          },
+        ],
+      },
+      {
+        test: /\.png?$/,
+        use: 'file-loader',
       },
     ],
   },

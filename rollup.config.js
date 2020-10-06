@@ -21,6 +21,10 @@ files.forEach((file) => {
   }
 });
 
+const packagePath = path.resolve(__dirname, 'package.json');
+const pkg = require(packagePath);
+const dependencies = Object.keys(pkg.peerDependencies);
+
 const all = `index`;
 packages[all] = path.join(__dirname, '/components/index.js');
 
@@ -62,7 +66,7 @@ const createRollupConfig = (file, name) => {
       isProd && terser(), // 压缩js
     ],
     // 指出应将哪些模块视为外部模块，如 Peer dependencies 中的依赖
-    external: ['antd', 'react', 'react-dom'],
+    external: dependencies,
   };
   return config;
 };
