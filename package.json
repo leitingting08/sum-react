@@ -5,7 +5,7 @@
   "private": false,
   "main": "./lib/index.js",
   "module": "./lib/index.js",
-  "homepage": "https://github.com/leitingting08/react-components.git",
+  "homepage": "https://leitingting08.github.io/react-components/",
   "scripts": {
     "doc": "styleguidist server",
     "build": "rimraf dist && cross-env NODE_ENV=production rollup -c",
