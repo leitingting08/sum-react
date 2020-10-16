@@ -31,15 +31,28 @@ packages[all] = path.join(__dirname, '/components/index.js');
 const createRollupConfig = (file, name) => {
   const config = {
     input: file,
-    output: {
-      file: name === all ? 'lib/index.js' : `lib/${name}/index.js`,
-      format: 'es',
-      name,
-      globals: {
-        antd: 'antd',
-        react: 'react',
+    output: [
+      // 默认打包到lib文件夹下的版本是umd版本
+      {
+        file: name === all ? 'lib/index.js' : `lib/${name}/index.js`,
+        format: 'umd',
+        name,
+        globals: {
+          antd: 'antd',
+          react: 'react',
+        },
       },
-    },
+      {
+        // 再多打包一份es版本到es文件夹下
+        file: name === all ? 'lib/es/index.js' : `lib/es/${name}/index.js`,
+        format: 'es',
+        name,
+        globals: {
+          antd: 'antd',
+          react: 'react',
+        },
+      },
+    ],
     plugins: [
       json(),
       nodeResolve({ browser: true }),
@@ -55,7 +68,7 @@ const createRollupConfig = (file, name) => {
       postcss({
         // 单独打包css文件默认false
         // extract: true,
-        extract: true,
+        // extract: true,
         // Minimize CSS, boolean or options for cssnano.
         minimize: isProd,
         // Enable sourceMap.
