@@ -67,7 +67,7 @@ const createRollupConfig = (file, name) => {
       commonjs(),
       postcss({
         // 单独打包css文件默认false
-        // extract: true,
+        extract: true,
         // extract: true,
         // Minimize CSS, boolean or options for cssnano.
         minimize: isProd,
