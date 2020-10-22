@@ -44,7 +44,7 @@ const createRollupConfig = (file, name) => {
       },
       {
         // 再多打包一份es版本到es文件夹下
-        file: name === all ? 'lib/es/index.js' : `lib/es/${name}/index.js`,
+        file: name === all ? 'es/index.js' : `es/${name}/index.js`,
         format: 'es',
         name,
         globals: {
