@@ -92,6 +92,7 @@ npm i babel-plugin-import -D
 [
   'import',{  // 导入一个插件
     libraryName: 'react-components',   // 暴露的库名
+    libraryDirectory: 'es', // 默认lib
     camel2DashComponentName: false, // 关闭驼峰转换
     style: name=>`${name}/index.css` // 转换后的路径
   },
