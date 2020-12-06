@@ -42,6 +42,16 @@ or
 npx plop <ComponentName>
 ```
 
+## 提交规范
+
+```
+yarn commit
+or
+npm run commit
+```
+
+commit 提交规范步骤提示
+
 ### 文档打包
 
 ```
@@ -62,7 +72,20 @@ npm run build
 
 ## 六、发布前准备
 
-> 发布前更改 `package.json` 中的版本号
+1. 首先确保已经登录 npm 账号并且拥有发布权限
+2. 生成版本号、打 tag 和生成更改日志，其他用法详情见[standard-version](https://github.com/conventional-changelog/standard-version)
+
+```
+yarn release -- --release-as <版本号>
+# Or
+npm run release -- --release-as <版本号>
+```
+
+成功之后把 tag 推到远程
+
+```
+git push --follow-tags origin master
+```
 
 ## 七、发布到 npm
 
