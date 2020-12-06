@@ -21,8 +21,8 @@ files.forEach((file) => {
   }
 });
 
-const packagePath = path.resolve(__dirname, 'package.json');
-const pkg = require(packagePath);
+const pkg = require('./package.json');
+
 const dependencies = Object.keys(pkg.peerDependencies);
 
 const all = `index`;
@@ -67,7 +67,7 @@ const createRollupConfig = (file, name) => {
       commonjs(),
       postcss({
         // 单独打包css文件默认false
-        extract: true,
+        // extract: true,
         // extract: true,
         // Minimize CSS, boolean or options for cssnano.
         minimize: isProd,

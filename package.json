@@ -8,7 +8,7 @@
   "module": "./lib/index.js",
   "homepage": "https://leitingting08.github.io/react-components/",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://www.npmjs.cn/"
   },
   "scripts": {
     "doc": "styleguidist server",
