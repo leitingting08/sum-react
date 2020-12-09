@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "基于 React 的业务组件库",
   "private": false,
-  "license": "ISC",
+  "license": "MIT",
   "main": "./lib/index.js",
   "module": "./lib/index.js",
   "homepage": "https://leitingting08.github.io/react-components/",
