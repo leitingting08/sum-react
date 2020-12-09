@@ -70,6 +70,8 @@ or
 npm run build
 ```
 
+说明：打包的时候会出现 antd 依赖循环引用的报错: https://github.com/ant-design/ant-design/pull/23800 已有 pr 但是截止 2020.12.09 的最新 4.9.2 版本并没有解决这个问题
+
 ## 六、发布前准备
 
 1. 首先确保已经登录 npm 账号并且拥有发布权限
@@ -99,28 +101,10 @@ npm run pub
 
 ## 八、组件库使用
 
-按需加载使用 babel-plugin-import 插件配置 babel
+1. 确保项目安装了 `antd` `react` `react-dom`
+2. 直接 npm 安装使用包
 
-首先安装
-
-```
-yarn add babel-plugin-import --dev
-or
-npm i babel-plugin-import -D
-```
-
-其次，配置 babel 插件，具体看项目是在 webpack 里配置还是在 babel.config.js 文件里配置，配置完成之后就能使用按需加载了
-
-```
-[
-  'import',{  // 导入一个插件
-    libraryName: 'react-components',   // 暴露的库名
-    camel2DashComponentName: false, // 关闭驼峰转换
-    style: name=>`${name}/index.css` // 转换后的路径
-  },
-  'react-components'
-]
-```
+tips: rollup 打包已经实现按需引入，无需引入插件
 
 ## 九、TODO
 
