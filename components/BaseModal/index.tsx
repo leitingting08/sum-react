@@ -22,11 +22,11 @@ interface Props {
   /**
    * 点击确定回调
    */
-  onOk?: Function;
+  onOk?: (e: React.MouseEvent<HTMLElement>) => void;
   /**
    * 点击取消回调
    */
-  onCancel?: Function;
+  onCancel?: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 /**

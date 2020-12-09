@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
-    "outDir": "build/dist",
+    "rootDir": "./components",
+    "outDir": "./lib",
+    "declaration": true,
+    "declarationDir": "./lib/@types",
     "module": "esnext",
     "target": "es5",
     "lib": [

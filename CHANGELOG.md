@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/leitingting08/react-components/compare/v0.1.1...v0.0.2) (2020-12-09)
+
+### Features
+
+- css in js ([0f335b5](https://github.com/leitingting08/react-components/commit/0f335b56beb4298a6e021f2cc4827929b9c91e81))
+- 更换打包方式 ([7aec611](https://github.com/leitingting08/react-components/commit/7aec61162889880d2bc0793b05559e3135b15ebc))
+
+### Bug Fixes
+
+- 暂时导入 css ([73f95ff](https://github.com/leitingting08/react-components/commit/73f95ffa1350689f52c997a533578012aaa742cb))
+
 ### 0.1.1 (2020-12-06)
 
 ### Features
