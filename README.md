@@ -106,12 +106,55 @@ npm run pub
 
 tips: rollup 打包已经实现按需引入，无需引入插件
 
+## 体验 demo
+
+安装 npm 包
+
+```
+yarn add sum-react
+or
+npm install sum-react
+```
+
+组件里使用
+
+```
+import React from 'react';
+import { BaseButton, BaseModal } from 'sum-react'
+
+function App() {
+  const [visible, setVisible] = React.useState(false);
+  const showModal = () => {
+    console.log('showmodal');
+    setVisible(true);
+  };
+
+  const closeModal = () => {
+    console.log('closemodal');
+    setVisible(false);
+  }
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <BaseButton onClick={showModal}>点击我展示弹窗</BaseButton>
+        <BaseModal title="Basic Modal" visible={visible} onOk={closeModal} onCancel={closeModal}>
+          <p>Some contents...</p>
+        </BaseModal>
+      </header>
+    </div>
+  );
+}
+
+export default App;
+```
+
 ## 九、TODO
 
 - [x] 文档示例
 - [x] 更改日志
 - [x] 文档部署
-- [x] 工具快速生成文件
+- [x] 快速新建组件文件夹
 - [x] 按需引入
 - [ ] 单元测试
 - [ ] 记录打点
