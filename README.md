@@ -42,6 +42,16 @@ or
 npx plop <ComponentName>
 ```
 
+## 提交规范
+
+```
+yarn commit
+or
+npm run commit
+```
+
+commit 提交规范步骤提示
+
 ### 文档打包
 
 ```
@@ -50,7 +60,7 @@ or
 npm run build_doc
 ```
 
-可以打包后部署到 github pages 上 [戳这里看](https://leitingting08.github.io/react-components/) 添加 GitHub Actions 持续集成 提交自动部署
+可以打包后部署到 github pages 上 [戳这里看](https://leitingting08.github.io/sum-react/) 添加 GitHub Actions 持续集成 提交自动部署
 
 ## 五、组件库打包
 
@@ -60,9 +70,24 @@ or
 npm run build
 ```
 
+说明：打包的时候会出现 antd 依赖循环引用的报错: https://github.com/ant-design/ant-design/pull/23800 已有 pr 但是截止 2020.12.09 的最新 4.9.2 版本并没有解决这个问题
+
 ## 六、发布前准备
 
-> 发布前更改 `package.json` 中的版本号
+1. 首先确保已经登录 npm 账号并且拥有发布权限
+2. 生成版本号、打 tag 和生成更改日志，其他用法详情见[standard-version](https://github.com/conventional-changelog/standard-version)
+
+```
+yarn release -- --release-as <版本号>
+# Or
+npm run release -- --release-as <版本号>
+```
+
+成功之后把 tag 推到远程
+
+```
+git push --follow-tags origin master
+```
 
 ## 七、发布到 npm
 
@@ -76,28 +101,52 @@ npm run pub
 
 ## 八、组件库使用
 
-按需加载使用 babel-plugin-import 插件配置 babel
+1. 确保项目安装了 `antd` `react` `react-dom`
+2. 直接 npm 安装使用包
 
-首先安装
+tips: rollup 打包已经实现按需引入，无需引入插件
+
+## 体验 demo
+
+安装 npm 包
 
 ```
-yarn add babel-plugin-import --dev
+yarn add sum-react
 or
-npm i babel-plugin-import -D
+npm install sum-react
 ```
 
-其次，配置 babel 插件，具体看项目是在 webpack 里配置还是在 babel.config.js 文件里配置，配置完成之后就能使用按需加载了
+组件里使用
 
 ```
-[
-  'import',{  // 导入一个插件
-    libraryName: 'react-components',   // 暴露的库名
-    libraryDirectory: 'es', // 加载的文件夹 默认lib
-    camel2DashComponentName: false, // 关闭驼峰转换
-    style: name=>`${name}/index.css` // 转换后的路径
-  },
-  'react-components'
-]
+import React from 'react';
+import { BaseButton, BaseModal } from 'sum-react'
+
+function App() {
+  const [visible, setVisible] = React.useState(false);
+  const showModal = () => {
+    console.log('showmodal');
+    setVisible(true);
+  };
+
+  const closeModal = () => {
+    console.log('closemodal');
+    setVisible(false);
+  }
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <BaseButton onClick={showModal}>点击我展示弹窗</BaseButton>
+        <BaseModal title="Basic Modal" visible={visible} onOk={closeModal} onCancel={closeModal}>
+          <p>Some contents...</p>
+        </BaseModal>
+      </header>
+    </div>
+  );
+}
+
+export default App;
 ```
 
 ## 九、TODO
@@ -105,7 +154,7 @@ npm i babel-plugin-import -D
 - [x] 文档示例
 - [x] 更改日志
 - [x] 文档部署
-- [x] 工具快速生成文件
+- [x] 快速新建组件文件夹
 - [x] 按需引入
 - [ ] 单元测试
 - [ ] 组件埋点
