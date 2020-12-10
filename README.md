@@ -60,7 +60,7 @@ or
 npm run build_doc
 ```
 
-可以打包后部署到 github pages 上 [戳这里看](https://leitingting08.github.io/react-components/) 添加 GitHub Actions 持续集成 提交自动部署
+可以打包后部署到 github pages 上 [戳这里看](https://leitingting08.github.io/sum-react/) 添加 GitHub Actions 持续集成 提交自动部署
 
 ## 五、组件库打包
 
