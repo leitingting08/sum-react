@@ -5,26 +5,25 @@
   "private": false,
   "license": "MIT",
   "main": "./lib/index.js",
-  "module": "./es/index.js",
-  "homepage": "https://leitingting08.github.io/react-components/",
+  "module": "./lib/es/index.js",
+  "homepage": "https://leitingting08.github.io/sum-react/",
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "doc": "styleguidist server",
     "build": "rimraf lib && cross-env NODE_ENV=production rollup -c",
-    "build:watch": "rimraf lib && rollup -c -w",
-    "build:dev": "rimraf lib && rollup -c",
+    "build:watch": "rimraf lib && cross-env NODE_ENV=development rollup -c -w",
+    "build:dev": "rimraf lib && cross-env NODE_ENV=development rollup -c",
     "build_doc": "rimraf dist_docs && styleguidist build",
     "commit": "git-cz",
     "release": "standard-version",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "pub": "npm run build && npm publish",
-    "test": "jest --color "
+    "test": "cross-env NODE_ENV=test jest --colors --coverage"
   },
   "files": [
-    "lib",
-    "es"
+    "lib"
   ],
   "dependencies": {
     "@babel/core": "^7.12.9",
@@ -43,25 +42,29 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
+    "@babel/runtime": "^7.12.5",
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
-    "@testing-library/react-hooks": "^3.7.0",
     "@types/react": "^16.9.46",
     "@types/react-router-dom": "^5.1.5",
     "@typescript-eslint/parser": "^4.9.1",
     "@umijs/fabric": "^2.3.1",
     "antd": "^4.9.2",
+    "babel-jest": "^26.6.3",
     "babel-loader": "^8.1.0",
     "babel-plugin-import": "^1.13.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-preset-react-app": "^9.1.2",
+    "babel-preset-stage-2": "^6.24.1",
     "commitizen": "^4.1.2",
     "cross-env": "^7.0.2",
     "css-loader": "^4.2.1",
     "cz-conventional-changelog": "^3.2.0",
     "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^7.15.0",
     "husky": "^4.2.5",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "less": "^3.12.2",
     "less-loader": "^6.2.0",
@@ -77,6 +80,7 @@
     "rollup": "^2.23.1",
     "standard-version": "^9.0.0",
     "style-loader": "^1.2.1",
+    "ts-jest": "^26.4.4",
     "webpack": "^4.44.1"
   },
   "peerDependencies": {

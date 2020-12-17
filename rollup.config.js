@@ -29,7 +29,7 @@ export default {
     },
   ],
   plugins: [
-    typescript({ include: ['components/**'], lib: ['es5', 'es6', 'dom'], target: 'es5' }),
+    typescript({ include: ['components/**'], lib: ['es5', 'es6', 'dom'] }),
     babel({
       exclude: 'node_modules/**',
       babelHelpers: 'runtime',

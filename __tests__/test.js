@@ -1,24 +1,26 @@
-// import { renderHook, act } from '@testing-library/react-hooks'
-// import BaseButton from '../components/BaseButton'
-// import BaseModal from '../components/BaseModal'
-const { renderHook, act } = require('@testing-library/react-hooks');
-const BaseButton = require('../components/BaseButton');
-const BaseModal = require('../components/BaseModal');
+import React from 'react';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import BaseButton from '../components/BaseButton';
+import BaseModal from '../components/BaseModal';
 
-describe('BaseButton测试', () => {
-  it('测试BaseButton', () => {
-    const { result } = renderHook(() => BaseButton());
-    act(() => {
-      result.current.handleClick();
-    });
-    expect(result.current.handleClick()).toHaveBeenCalled();
+Enzyme.configure({ adapter: new Adapter() });
+describe('BaseButton', () => {
+  const handleClick = jest.fn();
+  const buttonwrapper = shallow(<BaseButton onClick={handleClick}>hello</BaseButton>);
+  const modalwrapper = Enzyme.shallow(
+    <BaseModal>
+      <p>Some contents...</p>
+    </BaseModal>,
+  );
+  it('should have rendered BaseButton', () => {
+    expect(buttonwrapper).toMatchSnapshot();
   });
-
-  it('测试BaseModal', () => {
-    const { result } = renderHook(() => BaseModal());
-    act(() => {
-      result.current.handleClick();
-    });
-    expect(result.current.handleClick()).toHaveBeenCalled();
+  it('should have rendered BaseModal', () => {
+    expect(modalwrapper).toMatchSnapshot();
+  });
+  it('should excute click event', () => {
+    buttonwrapper.find('.base-btn').simulate('click');
+    expect(handleClick).toBeCalled();
   });
 });

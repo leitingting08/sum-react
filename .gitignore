@@ -2,7 +2,8 @@
 node_modules
 /lib
 /es
-
+/coverage
+/__tests__
 # local env files
 .env.local
 .env.*.local

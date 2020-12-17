@@ -149,6 +149,14 @@ function App() {
 export default App;
 ```
 
+## 单元测试
+
+```
+yarn test
+or
+npm run test
+```
+
 ## 九、TODO
 
 - [x] 文档示例
@@ -156,5 +164,5 @@ export default App;
 - [x] 文档部署
 - [x] 快速新建组件文件夹
 - [x] 按需引入
-- [ ] 单元测试
+- [x] 单元测试
 - [ ] 组件埋点
