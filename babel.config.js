@@ -38,6 +38,7 @@ module.exports = {
         ['@babel/plugin-transform-runtime'],
         ['import', { libraryName: 'antd', style: true }],
       ],
+      ignore: ['node_modules/**'],
     },
     development: {
       presets: [
@@ -58,6 +59,7 @@ module.exports = {
         ['@babel/plugin-transform-runtime'],
         ['import', { libraryName: 'antd', style: true }],
       ],
+      ignore: ['node_modules/**'],
     },
   },
 };

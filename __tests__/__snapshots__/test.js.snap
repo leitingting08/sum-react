@@ -1,9 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BaseButton BaseModal 1`] = `ShallowWrapper {}`;
-
 exports[`BaseButton should have rendered BaseButton 1`] = `ShallowWrapper {}`;
 
 exports[`BaseButton should have rendered BaseModal 1`] = `ShallowWrapper {}`;
-
-exports[`BaseButton should have rendered button 1`] = `ShallowWrapper {}`;
