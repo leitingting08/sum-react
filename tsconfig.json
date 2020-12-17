@@ -33,7 +33,8 @@
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": false,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true
   },
   "exclude": [
     "node_modules"

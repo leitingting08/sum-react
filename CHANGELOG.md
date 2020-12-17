@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/leitingting08/sum-react/compare/v0.0.2...v0.0.3) (2020-12-17)
+
+### Features
+
+- ✨ 单元测试 ([1d861b2](https://github.com/leitingting08/sum-react/commit/1d861b20da04074365cb7035f4e7ecc51605b5c6))
+- ✨ 单元测试 ([d5cf2fa](https://github.com/leitingting08/sum-react/commit/d5cf2fae1bf740ff3c7e264c2569f4bc18dd51ac))
+- unit test ([3bf1613](https://github.com/leitingting08/sum-react/commit/3bf16134115945cc2f4b2d2efc74105ddd1b3ee2))
+- unit-test ([f50edef](https://github.com/leitingting08/sum-react/commit/f50edef3a4a9a79eb4223d98e3aa69c256fb4397))
+
 ### [0.0.2](https://github.com/leitingting08/react-components/compare/v0.1.1...v0.0.2) (2020-12-09)
 
 ### Features
