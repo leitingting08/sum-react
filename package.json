@@ -1,6 +1,6 @@
 {
   "name": "sum-react",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "基于 React 的业务组件库",
   "private": false,
   "license": "MIT",
@@ -8,8 +8,8 @@
   "module": "./lib/es/index.js",
   "homepage": "https://leitingting08.github.io/sum-react",
   "repository": {
-    "type" : "git" , 
-    "url" : "https://github.com/leitingting08/sum-react"
+    "type": "git",
+    "url": "https://github.com/leitingting08/sum-react"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

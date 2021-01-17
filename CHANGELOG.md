@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/leitingting08/sum-react/compare/v0.0.3...v0.0.4) (2021-01-17)
+
+### Features
+
+- update package.json ([e094869](https://github.com/leitingting08/sum-react/commit/e094869a0f82330eb80d0469b1e6e802ed8865ae))
+
 ### [0.0.3](https://github.com/leitingting08/sum-react/compare/v0.0.2...v0.0.3) (2020-12-17)
 
 ### Features
