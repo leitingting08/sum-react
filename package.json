@@ -6,7 +6,11 @@
   "license": "MIT",
   "main": "./lib/index.js",
   "module": "./lib/es/index.js",
-  "homepage": "https://leitingting08.github.io/sum-react/",
+  "homepage": "https://leitingting08.github.io/sum-react",
+  "repository": {
+    "type" : "git" , 
+    "url" : "https://github.com/leitingting08/sum-react"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
@@ -19,7 +23,7 @@
     "commit": "git-cz",
     "release": "standard-version",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "pub": "npm run build && npm publish",
+    "pub": "npm run release && npm run build && npm publish && git push --follow-tags",
     "test": "cross-env NODE_ENV=test jest --colors --coverage"
   },
   "files": [
