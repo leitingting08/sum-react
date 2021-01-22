@@ -1,4 +1,4 @@
-/*! For license information please see bundle.f075dba1.js.LICENSE.txt */
+/*! For license information please see bundle.3de57b0d.js.LICENSE.txt */
 !(function (n) {
   var r = {};
   function __webpack_require__(i) {
@@ -55230,7 +55230,7 @@
         styles: {},
         theme: {},
         title: 'React 业务组件库',
-        version: '0.0.3',
+        version: '0.0.5',
       },
       welcomeScreen: !1,
       patterns: void 0,
