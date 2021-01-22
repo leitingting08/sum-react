@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "rootDir": "./components",
     "outDir": "./lib",
     "declaration": true,
     "declarationDir": "./lib/@types",
@@ -36,7 +35,7 @@
     "emitDecoratorMetadata": true,
     "esModuleInterop": true
   },
-  "exclude": [
-    "node_modules"
+  "include": [
+    "components"
   ]
 }

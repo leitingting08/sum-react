@@ -28,11 +28,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 - 暂时导入 css ([73f95ff](https://github.com/leitingting08/react-components/commit/73f95ffa1350689f52c997a533578012aaa742cb))
 
-### 0.1.1 (2020-12-06)
+### 0.0.1 (2020-12-06)
 
 ### Features
 
-- 0.1.0 react 组件库 ([720fff8](https://github.com/leitingting08/react-components/commit/720fff8cd62797aafde7c7dc26a1635827138afb))
+- 0.0.1 react 组件库 ([720fff8](https://github.com/leitingting08/react-components/commit/720fff8cd62797aafde7c7dc26a1635827138afb))
 - 更新 readme ([dd1fa3c](https://github.com/leitingting08/react-components/commit/dd1fa3c1b455711ace695d3646c2f3aeee8f400a))
 - 配置组件库的按需加载 ([4fa11a3](https://github.com/leitingting08/react-components/commit/4fa11a379aa4736ee5c0e98931a144b1182678b2))
 - 添加更改日志 ([f619122](https://github.com/leitingting08/react-components/commit/f61912230068eaf58697b84f79120eb42ef38661))

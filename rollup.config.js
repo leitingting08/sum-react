@@ -19,8 +19,19 @@ export default {
     {
       format: 'umd',
       name: pkg.name,
-      sourcemap: isProd ? false : true,
-      dir: 'lib',
+      file: 'lib/index.main.js',
+      sourcemap: true,
+      globals: {
+        antd: 'antd',
+        react: 'react',
+        'react-dom': 'react-dom',
+      },
+    },
+    {
+      format: 'es',
+      name: pkg.name,
+      file: 'lib/index.module.js',
+      sourcemap: true,
       globals: {
         antd: 'antd',
         react: 'react',
@@ -29,7 +40,11 @@ export default {
     },
   ],
   plugins: [
-    typescript({ include: ['components/**'], lib: ['es5', 'es6', 'dom'] }),
+    typescript({
+      include: ['*.ts+(|x)', '**/*.ts+(|x)'],
+      exclude: 'node_modules/**',
+      typescript: require('typescript'),
+    }),
     babel({
       exclude: 'node_modules/**',
       babelHelpers: 'runtime',
