@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/leitingting08/sum-react/compare/v0.0.4...v0.0.5) (2021-01-22)
+
+### Features
+
+- **🔧:** 修改打包配置 ([5f048f3](https://github.com/leitingting08/sum-react/commit/5f048f3f0d92c74499c417a37a4b4ea1834c096f))
+
 ### [0.0.4](https://github.com/leitingting08/sum-react/compare/v0.0.3...v0.0.4) (2021-01-17)
 
 ### Features
