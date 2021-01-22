@@ -23,7 +23,7 @@
     "commit": "git-cz",
     "release": "standard-version",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "pub": "npm run build_doc && npm run build && npm publish && npm run release && git push --follow-tags",
+    "pub": "npm run build:doc && npm run build && npm publish && npm run release && git push --follow-tags",
     "test": "cross-env NODE_ENV=test jest --colors --coverage"
   },
   "files": [
