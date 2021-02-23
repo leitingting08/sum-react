@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/leitingting08/sum-react/compare/v0.0.5...v0.0.6) (2021-02-23)
+
+### Features
+
+- 添加类型声明 ([009335c](https://github.com/leitingting08/sum-react/commit/009335c4d1f6c7cf5a7c109f89dbe637f9565683))
+- 添加类型声明 ([c4048b4](https://github.com/leitingting08/sum-react/commit/c4048b4899f591b34339aadbd88a767c1e510d68))
+- update docs ([5dbf6f1](https://github.com/leitingting08/sum-react/commit/5dbf6f1e8a8e35037e102d121ce51d8ad6688097))
+- update docs ([a5efe9d](https://github.com/leitingting08/sum-react/commit/a5efe9dd3fe3551ac8f36e229814eb8eedb60243))
+- update docs ([e345184](https://github.com/leitingting08/sum-react/commit/e345184842a6517591f7125114289685f6553df1))
+
 ### [0.0.5](https://github.com/leitingting08/sum-react/compare/v0.0.4...v0.0.5) (2021-01-22)
 
 ### Features
