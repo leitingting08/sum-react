@@ -4,7 +4,7 @@ import json from '@rollup/plugin-json';
 import postcss from 'rollup-plugin-postcss';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
-import typescript from '@rollup/plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
 import { DEFAULT_EXTENSIONS } from '@babel/core';
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -20,7 +20,6 @@ export default {
       format: 'umd',
       name: pkg.name,
       file: 'lib/index.main.js',
-      sourcemap: true,
       globals: {
         antd: 'antd',
         react: 'react',
@@ -31,7 +30,6 @@ export default {
       format: 'es',
       name: pkg.name,
       file: 'lib/index.module.js',
-      sourcemap: true,
       globals: {
         antd: 'antd',
         react: 'react',
@@ -39,6 +37,12 @@ export default {
       },
     },
   ],
+  onwarn: function (warning) {
+    if (warning.code === 'CIRCULAR_DEPENDENCY') {
+      return;
+    }
+    console.error(`(!) ${warning.message}`);
+  },
   plugins: [
     typescript({
       include: ['*.ts+(|x)', '**/*.ts+(|x)'],
