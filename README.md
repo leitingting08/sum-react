@@ -122,7 +122,7 @@ npm i babel-plugin-import -D
 [
    'import', {
       libraryName: 'sum-react',
-      libraryDirectory: "es",
+      libraryDirectory: "es", // 文件目录，es和lib，默认lib
       camel2DashComponentName: false,
       style: name=>`${name}/index.less` // 用less，便于配置主题色
   }
