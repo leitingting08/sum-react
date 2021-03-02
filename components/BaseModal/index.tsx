@@ -19,14 +19,6 @@ interface Props {
    * 取消文案
    */
   cancelText?: string;
-  /**
-   * 点击确定回调
-   */
-  onOk?: Function;
-  /**
-   * 点击取消回调
-   */
-  onCancel?: Function;
 }
 
 /**
@@ -35,7 +27,7 @@ interface Props {
  */
 
 function BaseModal(props: Props) {
-  const { centered, visible, onOk, onCancel, okText, cancelText } = props;
+  const { centered, visible, okText, cancelText } = props;
   return (
     <Modal
       {...props}
@@ -45,8 +37,6 @@ function BaseModal(props: Props) {
       cancelText={cancelText}
       centered={centered}
       closeIcon={<span className="base-closebtn">×</span>}
-      onOk={onOk}
-      onCancel={onCancel}
     />
   );
 }

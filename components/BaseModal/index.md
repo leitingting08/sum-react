@@ -3,9 +3,9 @@ import React from 'react';
 import BaseButton from '../BaseButton';
 
 const [visible, setVisible] = React.useState(false);
-const showModal = async () => {
+const showModal = () => {
   console.log('showmodal');
-  await setVisible(true);
+  setVisible(true);
 };
 
 const closeModal = () => {
