@@ -109,17 +109,25 @@ or
 npm i babel-plugin-import -D
 ```
 
-其次，配置 babel 插件，具体看项目是在 webpack 里配置还是在 babel.config.js 文件里配置，配置完成之后就能使用按需加载了
+其次，配置 babel 插件，具体看项目是在 webpack 里配置还是在 babel.config.js 文件里配置，配置完成之后就能使用按需加载了 🚨 注意：同时需要配置 antd 的按需加载和业务组件库 sum-react 的按需加载，因为 sum-react 是依赖 antd 的。
 
 ```
+// antd的按需加载
+['import', {
+      libraryName: 'antd',
+      libraryDirectory: "es",
+      style: true // 也是用less
+    }
+],
 [
-  'import',{  // 导入一个插件
-    libraryName: 'sum-react',   // 暴露的库名
-    camel2DashComponentName: false, // 关闭驼峰转换
-    style: name=>`${name}/index.css` // 转换后的路径
-  },
-  'sum-react'
+   'import', {
+      libraryName: 'sum-react',
+      libraryDirectory: "es",
+      camel2DashComponentName: false,
+      style: name=>`${name}/index.less` // 用less，便于配置主题色
+  }
 ]
+
 ```
 
 ## 九、TODO

@@ -1,6 +1,6 @@
 {
   "name": "sum-react",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "基于 React 的业务组件库",
   "private": false,
   "license": "MIT",
@@ -23,7 +23,8 @@
     "pub": "npm run build && npm publish"
   },
   "files": [
-    "lib"
+    "lib",
+    "es"
   ],
   "dependencies": {
     "@babel/core": "^7.12.9",
