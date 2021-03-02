@@ -23,16 +23,7 @@
     "jsx": "react",
     "isolatedModules": false,
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    // "forceConsistentCasingInFileNames": true,
-    // "noImplicitReturns": true,
-    // "noImplicitThis": true,
-    // "noImplicitAny": false,
-    // "strictNullChecks": true,
-    // "suppressImplicitAnyIndexErrors": true,
-    // "noUnusedLocals": false,
-    // "experimentalDecorators": true,
-    // "emitDecoratorMetadata": true
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "components"
