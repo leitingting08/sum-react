@@ -45,8 +45,8 @@ function BaseModal(props: Props) {
       cancelText={cancelText}
       centered={centered}
       closeIcon={<span className="base-closebtn">×</span>}
-      onOk={() => onOk}
-      onCancel={() => onCancel}
+      onOk={onOk}
+      onCancel={onCancel}
     />
   );
 }

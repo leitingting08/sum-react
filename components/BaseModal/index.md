@@ -1,17 +1,17 @@
 ```jsx
 import React from 'react';
 import BaseButton from '../BaseButton';
+
 const [visible, setVisible] = React.useState(false);
-const showModal = () => {
+const showModal = async () => {
   console.log('showmodal');
-  setVisible(true);
+  await setVisible(true);
 };
 
 const closeModal = () => {
   console.log('closemodal');
   setVisible(false);
 };
-
 <>
   <BaseModal title="Basic Modal" visible={visible} onOk={closeModal} onCancel={closeModal}>
     <p>Some contents...</p>

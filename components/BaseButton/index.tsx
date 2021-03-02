@@ -19,22 +19,9 @@ interface Props {
  */
 
 function BaseButton(props: Props) {
-  const [loading, setLoading] = useState(false);
   const { onClick, type } = props;
-  const handleClick = async () => {
-    if (!onClick) return;
-    if (loading) return;
-    setLoading(true);
-    try {
-      await onClick();
-    } finally {
-      setLoading(false);
-    }
-  };
 
-  return (
-    <Button {...props} type={type} loading={loading} onClick={handleClick} className="base-btn" />
-  );
+  return <Button {...props} type={type} onClick={onClick} className="base-btn" />;
 }
 
 BaseButton.defaultProps = {

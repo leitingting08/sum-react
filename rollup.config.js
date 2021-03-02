@@ -6,6 +6,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 import json from '@rollup/plugin-json';
+import copy from 'rollup-plugin-copy';
 import { DEFAULT_EXTENSIONS } from '@babel/core';
 
 const fs = require('fs');
@@ -45,7 +46,7 @@ const createRollupConfig = (file, name) => {
       },
       {
         // 再多打包一份es版本到es文件夹下
-        file: name === all ? 'lib/es/index.js' : `lib/es/${name}/index.js`,
+        file: name === all ? 'es/index.js' : `es/${name}/index.js`,
         format: 'es',
         name,
         globals: {
@@ -88,6 +89,13 @@ const createRollupConfig = (file, name) => {
         extensions: ['.less', '.css'],
         use: [['less', { javascriptEnabled: true }]],
       }),
+      name !== all &&
+        copy({
+          targets: [
+            { src: `components/${name}/index.less`, dest: `es/${name}` },
+            { src: `components/${name}/index.less`, dest: `lib/${name}` },
+          ],
+        }),
       isProd && terser(), // 压缩js
     ],
     // 指出应将哪些模块视为外部模块，如 Peer dependencies 中的依赖
