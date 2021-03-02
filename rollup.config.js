@@ -1,10 +1,10 @@
 import path from 'path';
-import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
+import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
-import typescript from 'rollup-plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
 import json from '@rollup/plugin-json';
 import { DEFAULT_EXTENSIONS } from '@babel/core';
 
@@ -16,7 +16,7 @@ const packages = {};
 const dir = path.join(__dirname, '/components');
 const files = fs.readdirSync(dir);
 files.forEach((file) => {
-  if (file !== 'index.js') {
+  if (file !== 'index.ts') {
     packages[file] = `components/${file}/index.tsx`;
   }
 });
@@ -26,7 +26,7 @@ const pkg = require('./package.json');
 const dependencies = Object.keys(pkg.peerDependencies);
 
 const all = `index`;
-packages[all] = path.join(__dirname, '/components/index.js');
+packages[all] = path.join(__dirname, '/components/index.ts');
 
 const createRollupConfig = (file, name) => {
   const config = {
@@ -40,6 +40,7 @@ const createRollupConfig = (file, name) => {
         globals: {
           antd: 'antd',
           react: 'react',
+          'react-dom': 'react-dom',
         },
       },
       {
@@ -50,31 +51,42 @@ const createRollupConfig = (file, name) => {
         globals: {
           antd: 'antd',
           react: 'react',
+          'react-dom': 'react-dom',
         },
       },
     ],
+    onwarn: function (warning) {
+      if (warning.code === 'CIRCULAR_DEPENDENCY') {
+        return;
+      }
+      console.error(`(!) ${warning.message}`);
+    },
     plugins: [
-      json(),
-      nodeResolve({ browser: true }),
+      name === all &&
+        typescript({
+          include: ['components/*.ts+(|x)', 'components/**/*.ts+(|x)'],
+          typescript: require('typescript'),
+        }),
       babel({
         exclude: 'node_modules/**',
-        runtimeHelpers: true,
+        babelHelpers: 'runtime',
         // babel 默认不支持 ts 需要手动添加
-        extensions: [...DEFAULT_EXTENSIONS, '.ts'],
+        extensions: [...DEFAULT_EXTENSIONS, '.ts', '.tsx'],
       }),
-      typescript(),
+      json(),
+      nodeResolve(),
       // 使得 rollup 支持 commonjs 规范，识别 commonjs 规范的依赖
       commonjs(),
       postcss({
         // 单独打包css文件默认false
-        // extract: true,
-        // extract: true,
+        extract: true,
         // Minimize CSS, boolean or options for cssnano.
         minimize: isProd,
         // Enable sourceMap.
         sourceMap: !isProd,
         // This plugin will process files ending with these extensions and the extensions supported by custom loaders.
         extensions: ['.less', '.css'],
+        use: [['less', { javascriptEnabled: true }]],
       }),
       isProd && terser(), // 压缩js
     ],

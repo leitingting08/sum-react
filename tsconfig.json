@@ -1,9 +1,11 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
-    "outDir": "build/dist",
+    "baseUrl": "components",
+    "outDir": "lib",
     "module": "esnext",
     "target": "es5",
+    "declaration": true,
+    "declarationDir": "lib",
     "lib": [
       "dom",
       "es2015.core",
@@ -33,7 +35,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "exclude": [
-    "node_modules"
+  "include": [
+    "components"
   ]
 }
