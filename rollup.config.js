@@ -87,7 +87,7 @@ const createRollupConfig = (file, name) => {
         sourceMap: !isProd,
         // This plugin will process files ending with these extensions and the extensions supported by custom loaders.
         extensions: ['.less', '.css'],
-        use: [['less', { javascriptEnabled: true }]],
+        use: [['less', { javascriptEnabled: true, modifyVars: { '@primary-color': '#42b983' } }]],
       }),
       name !== all &&
         copy({

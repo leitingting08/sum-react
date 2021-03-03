@@ -26,7 +26,7 @@ module.exports = (plop) => {
       },
       {
         type: 'append',
-        path: 'components/index.js',
+        path: 'components/index.ts',
         pattern: /(\/\/ -- APPEND ITEMS HERE --)/gi,
         template: "export { default as {{name}} } from './{{name}}' ",
       },
