@@ -12,21 +12,21 @@ module.exports = (plop) => {
       {
         type: 'add',
         path: 'components/{{name}}/index.less',
-        templateFile: 'templates/index.less',
+        templateFile: 'templates/style.hbs',
       },
       {
         type: 'add',
         path: 'components/{{name}}/index.md',
-        templateFile: 'templates/index.md',
+        templateFile: 'templates/readme.hbs',
       },
       {
         type: 'add',
         path: 'components/{{name}}/index.tsx',
-        templateFile: 'templates/index.tsx',
+        templateFile: 'templates/index.hbs',
       },
       {
         type: 'append',
-        path: 'components/index.js',
+        path: 'components/index.ts',
         pattern: /(\/\/ -- APPEND ITEMS HERE --)/gi,
         template: "export { default as {{name}} } from './{{name}}' ",
       },
