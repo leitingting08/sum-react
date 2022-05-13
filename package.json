@@ -1,6 +1,6 @@
 {
   "name": "sum-react",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "基于 React 的业务组件库",
   "private": false,
   "license": "MIT",
@@ -31,7 +31,8 @@
     "lib"
   ],
   "dependencies": {
-    "@babel/core": "^7.12.9",
+    "@babel/core": "^7.17.10",
+    "@babel/runtime": "^7.17.9",
     "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-json": "^4.1.0",
@@ -47,7 +48,6 @@
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
-    "@babel/runtime": "^7.12.5",
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
     "@types/react": "^16.9.46",
